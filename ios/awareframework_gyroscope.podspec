@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'awareframework_gyroscope'
-  s.version = '0.0.5'
+  s.version = '0.7.0'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -19,6 +19,6 @@ A new flutter plugin project.
   s.dependency 'com.awareframework.ios.sensor.gyroscope'
   s.dependency 'com.awareframework.ios.sensor.core'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 end
 

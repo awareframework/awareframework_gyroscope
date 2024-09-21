@@ -11,9 +11,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  GyroscopeSensor sensor;
-  GyroscopeSensorConfig config;
+  GyroscopeSensor? sensor;
+  GyroscopeSensorConfig? config;
 
   @override
   void initState() {
@@ -24,20 +23,20 @@ class _MyAppState extends State<MyApp> {
       ..dbType = DatabaseType.DEFAULT
       ..debug = true;
 
-    sensor = new GyroscopeSensor.init(config);
-    sensor.start();
+    sensor = new GyroscopeSensor.init(config!);
+    sensor?.start();
+    sensor?.onDataChanged.listen((data) {
+      print(data);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     return new MaterialApp(
       home: new Scaffold(
-          appBar: new AppBar(
-            title: const Text('Plugin Example App'),
-          ),
-          body: new GyroscopeCard(sensor: sensor,)
+        appBar: new AppBar(
+          title: const Text('Plugin Example App'),
+        ),
       ),
     );
   }
